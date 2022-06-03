@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="BuildSystem">
+    <option name="buildSystemId" value="LEININGEN" />
+    <option name="displayName" value="lanchinhos-da-maya:0.1.0-SNAPSHOT" />
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/dev" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dev-resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Leiningen: cljfx:1.7.19" level="project" />
+    <orderEntry type="library" name="Leiningen: cljfx:1.7.19:jdk11" level="project" />
+    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.5" level="project" />
+    <orderEntry type="library" name="Leiningen: com.stuartsierra/component.repl:1.0.0" level="project" />
+    <orderEntry type="library" name="Leiningen: com.stuartsierra/component:1.1.0" level="project" />
+    <orderEntry type="library" name="Leiningen: com.stuartsierra/dependency:1.0.0" level="project" />
+    <orderEntry type="library" name="Leiningen: nrepl:0.6.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.11.1" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/core.specs.alpha:0.2.62" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/java.classpath:1.0.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/spec.alpha:0.3.218" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.namespace:1.3.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.reader:1.3.6" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-base:17.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-base:17.0.2:mac" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-controls:17.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-controls:17.0.2:mac" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-graphics:17.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-graphics:17.0.2:mac" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-media:17.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-media:17.0.2:mac" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-web:17.0.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-web:17.0.2:mac" level="project" />
+  </component>
+</module>
