@@ -87,6 +87,3 @@
                            "fazendo a transferência, me avisa por favor "
                            "se precisar fazer algum ajuste que eu faço mais uma "
                            "transferência, ok?" nl "Obrigado!"))
-
-(println (message initial-order))
-(cp-to-clipboard (message initial-order))
