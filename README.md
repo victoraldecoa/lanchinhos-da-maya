@@ -1,48 +1,5 @@
 # lanchinhos-da-maya
 
-TODO: Brief description
+Small Ctrl+c Ctrl+v WhatsApp restaurant ordering helper developed in Clojure+cljfx.
 
-
-
-## Releases and Dependency Information
-
-* Releases are published to TODO_LINK
-
-* Latest stable release is TODO_LINK
-
-* All released versions TODO_LINK
-
-[Leiningen] dependency information:
-
-    [lanchinhos-da-maya "0.1.0-SNAPSHOT"]
-
-[Maven] dependency information:
-
-    <dependency>
-      <groupId>lanchinhos-da-maya</groupId>
-      <artifactId>lanchinhos-da-maya</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-    </dependency>
-
-[Leiningen]: http://leiningen.org/
-[Maven]: http://maven.apache.org/
-
-
-
-## Usage
-
-TODO
-
-
-
-## Change Log
-
-* Version 0.1.0-SNAPSHOT
-
-
-
-## Copyright and License
-
-Copyright © 2022 TODO_INSERT_NAME
-
-TODO: [Choose a license](http://choosealicense.com/)
+![Sample screenshot #1](.github/images/screenshot1.png)
