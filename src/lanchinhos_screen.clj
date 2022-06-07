@@ -1,8 +1,7 @@
 (ns lanchinhos-screen
   (:require [cljfx.api :as fx]
             [lanchinhos-da-maya :refer :all]
-            [utils :refer :all])
-  (:import (javafx.scene.input KeyCode KeyEvent)))
+            [utils :refer :all]))
 
 (def initial-state
   {:by-id (into {} (map (fn [[k {:keys [desc] :as v}]]
@@ -18,30 +17,38 @@
    :children [{:fx/type             :check-box
                :selected            include
                :on-selected-changed {:event/type ::set-include :id id}}
-              {:fx/type     :label
-               :text        description}]})
+              {:fx/type :label
+               :text    description}]})
+
+(defn scroll [by-id]
+  {:fx/type     :v-box
+   :pref-width  300
+   :pref-height 400
+   :children    [{:fx/type      :scroll-pane
+                  :v-box/vgrow  :always
+                  :fit-to-width true
+                  :content      {:fx/type  :v-box
+                                 :children (->> by-id
+                                                vals
+                                                (map #(assoc %
+                                                        :fx/type order-view
+                                                        :fx/key (:id %))))}}
+                 {:fx/type          :button
+                  :v-box/margin     5
+                  :alignment        :center
+                  :on-mouse-pressed {:event/type ::buy-press}
+                  :text             "Comprar"}]})
 
 (defn root [{:keys [by-id]}]
   {:fx/type :stage
    :showing true
    :scene   {:fx/type :scene
-             :root    {:fx/type     :v-box
-                       :pref-width  300
-                       :pref-height 400
-                       :children    [{:fx/type      :scroll-pane
-                                      :v-box/vgrow  :always
-                                      :fit-to-width true
-                                      :content      {:fx/type  :v-box
-                                                     :children (->> by-id
-                                                                    vals
-                                                                    (map #(assoc %
-                                                                            :fx/type order-view
-                                                                            :fx/key (:id %))))}}
-                                     {:fx/type          :button
-                                      :v-box/margin     5
-                                      :alignment        :center
-                                      :on-mouse-pressed {:event/type ::buy-press}
-                                      :text             "Comprar"}]}}})
+             :root    {:fx/type  :h-box
+                       :children [(scroll by-id)
+                                  {:fx/type   :label
+                                   :wrap-text true
+                                   :max-width 350
+                                   :text      "Fica 146 reais mais 15 da taxa de entrega, totalizando 161, correto? Já estou fazendo a transferência, me avisa por favor se precisar fazer algum ajuste que eu faço outra transferência, ok?\nObrigado!"}]}}})
 
 (defn map-event-handler [event]
   (case (:event/type event)
