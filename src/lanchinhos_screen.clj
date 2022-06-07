@@ -46,10 +46,13 @@
                  :wrap-text true
                  :text      (str "Instruções: selecione o pedido, copie o texto clicando no "
                                  "botão abaixo e cole no WhatsApp.")}
-                {:fx/type   :split-pane}
-                {:fx/type   :label
-                 :wrap-text true
-                 :text      (screen-message by-id)}
+                {:fx/type :split-pane}
+                {:fx/type      :scroll-pane
+                 :v-box/vgrow  :always
+                 :fit-to-width true
+                 :content      {:fx/type   :label
+                                :wrap-text true
+                                :text      (screen-message by-id)}}
                 {:fx/type          :button
                  :v-box/margin     5
                  :alignment        :center
