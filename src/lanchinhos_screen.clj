@@ -10,6 +10,11 @@
                                      :description desc
                                      :include     (boolean (initial-order k))})]) complete-menu))})
 
+(defn screen-message [by-id]
+  (let [menu (-> by-id vals)
+        order (filter #(:include %) menu)]
+    (message (map :id order))))
+
 (defn order-view [{:keys [description id include]}]
   {:fx/type  :h-box
    :spacing  5
@@ -20,7 +25,7 @@
               {:fx/type :label
                :text    description}]})
 
-(defn scroll [by-id]
+(defn left-scroll [by-id]
   {:fx/type     :v-box
    :pref-width  300
    :pref-height 400
@@ -32,32 +37,39 @@
                                                 vals
                                                 (map #(assoc %
                                                         :fx/type order-view
-                                                        :fx/key (:id %))))}}
-                 {:fx/type          :button
-                  :v-box/margin     5
-                  :alignment        :center
-                  :on-mouse-pressed {:event/type ::buy-press}
-                  :text             "Comprar"}]})
+                                                        :fx/key (:id %))))}}]})
+
+(defn right-message-pane [by-id]
+  {:fx/type    :v-box
+   :pref-width 350
+   :children   [{:fx/type   :label
+                 :wrap-text true
+                 :text      (str "Instruções: selecione o pedido, copie o texto clicando no "
+                                 "botão abaixo e cole no WhatsApp.")}
+                {:fx/type   :split-pane}
+                {:fx/type   :label
+                 :wrap-text true
+                 :text      (screen-message by-id)}
+                {:fx/type          :button
+                 :v-box/margin     5
+                 :alignment        :center
+                 :on-mouse-pressed {:event/type ::copy-press}
+                 :text             "Copiar texto"}]})
 
 (defn root [{:keys [by-id]}]
   {:fx/type :stage
    :showing true
    :scene   {:fx/type :scene
              :root    {:fx/type  :h-box
-                       :children [(scroll by-id)
-                                  {:fx/type   :label
-                                   :wrap-text true
-                                   :max-width 350
-                                   :text      "Fica 146 reais mais 15 da taxa de entrega, totalizando 161, correto? Já estou fazendo a transferência, me avisa por favor se precisar fazer algum ajuste que eu faço outra transferência, ok?\nObrigado!"}]}}})
+                       :children [(left-scroll by-id)
+                                  (right-message-pane by-id)]}}})
 
 (defn map-event-handler [event]
   (case (:event/type event)
     ::set-include #(assoc-in % [:by-id (:id event) :include] (:fx/event event))
-    ::buy-press (fn [state]
-                  (let [menu (-> state :by-id vals)
-                        order (filter #(:include %) menu)]
-                    (cp-to-clipboard (message (map :id order)))
-                    state))
+    ::copy-press (fn [{:keys [by-id] :as state}]
+                   (cp-to-clipboard (screen-message by-id))
+                   state)
     identity))
 
 (def *state
