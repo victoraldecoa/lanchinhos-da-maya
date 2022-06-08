@@ -1,0 +1,6 @@
+--input target
+--main-jar lanchinhos-da-maya-0.1.0-SNAPSHOT.jar
+--name "lanchinhos-da-maya-0.1.0-SNAPSHOT"
+--main-class clojure.main
+--arguments -m
+--arguments lanchinhos-screen
