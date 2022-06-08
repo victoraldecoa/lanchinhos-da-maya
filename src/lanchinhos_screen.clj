@@ -1,7 +1,9 @@
 (ns lanchinhos-screen
+  (:gen-class)
   (:require [cljfx.api :as fx]
             [lanchinhos-da-maya :refer :all]
-            [utils :refer :all]))
+            [utils :refer :all])
+  (:import (javafx.application Platform)))
 
 (def initial-state
   {:by-id (into {} (map (fn [[k {:keys [desc] :as v}]]
@@ -83,4 +85,8 @@
     :middleware (fx/wrap-map-desc assoc :fx/type root)
     :opts {:fx.opt/map-event-handler #(swap! *state (map-event-handler %))}))
 
-(fx/mount-renderer *state renderer)
+(defn -main [& _]
+  (Platform/setImplicitExit true)
+  (fx/mount-renderer *state renderer))
+
+(defn run [_] (-main nil))
