@@ -1,5 +1,6 @@
 {:paths   ["src" "resources"]
- :deps    {cljfx/cljfx {:mvn/version "1.7.19"}}
+ :deps    {org.clojure/clojure {:mvn/version "1.11.1"}
+           cljfx/cljfx {:mvn/version "1.7.19"}}
  :aliases {:build {:deps {io.github.seancorfield/build-clj
                           {:git/tag    "v0.6.3" :git/sha "9b8e09b"
                            ;; since we're building an app uberjar, we do not
