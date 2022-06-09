@@ -1,7 +1,7 @@
 name: Build Release Artifacts
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build-deb:
     runs-on: ubuntu-latest
@@ -49,6 +49,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
+          distribution: 'zulu'
           java-version: '11'
       - uses: DeLaGuardo/setup-clojure@5.0
         with:
