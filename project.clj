@@ -8,7 +8,4 @@
                  [cljfx "1.7.19"]]
   :profiles {:dev     {:dependencies [[org.clojure/tools.namespace "1.3.0"]
                                       [com.stuartsierra/component.repl "1.0.0"]]
-                       :source-paths ["dev"]}
-             :uberjar {:aot        :all
-                       :injections [(javafx.application.Platform/exit)]}}
-  :main lanchinhos-screen)
+                       :source-paths ["dev"]}})

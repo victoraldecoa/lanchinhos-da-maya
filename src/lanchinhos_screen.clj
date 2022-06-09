@@ -1,5 +1,4 @@
 (ns lanchinhos-screen
-  (:gen-class)
   (:require [cljfx.api :as fx]
             [lanchinhos-da-maya :refer :all]
             [utils :refer :all])

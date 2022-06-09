@@ -4,7 +4,7 @@
 
 (def lib 'net.clojars.victoraldecoa/lanchinhos-da-maya)
 (def version "0.1.0-SNAPSHOT")
-(def main 'lanchinhos-screen)
+(def main 'clojure.main)
 
 (defn test "Run the tests." [opts]
   (bb/run-tests opts))
